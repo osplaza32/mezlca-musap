@@ -1,0 +1,54 @@
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  <div class="logo">
+    <img src="/images/musap_logo.svg" width="300px">
+    <h2>hola@musap.cl</h2>
+  </div>
+  <a-scene embedded vr-mode-ui="enabled: false">
+    <a-assets inspector="" keyboard-shortcuts="enterVR:false;exitVR:false" screenshot="" vr-mode-ui="enabled:false">
+      <a-asset-item id="planet" src="/models/planet.gltf"></a-asset-item>
+    </a-assets>
+
+    <a-entity position="0 0 0" particle-system="preset:dust;particleCount:1000;rotationAngle:0;accelerationValue:0,0,0;accelerationSpread:0,0,0;velocityValue:0,0,0;velocitySpread:0,0,0;opacity: 0.5;color: #0000FF,#00FF00,#FF0000;size: 0, 2, 0;"></a-entity>
+
+    <a-camera camera="" position="0 0 0" rotation="" look-controls="enabled:false;hmdEnabled:false;touchEnabled:false" wasd-controls="enabled:false" data-aframe-inspector-original-camera=""></a-camera>
+
+    <a-gltf-model id="mundo" src="#planet" position="0 -0.2 -5" scale="0.2 0.2 0.2">
+      <a-animation attribute="rotation" to="0 360 0" direction="normal" dur="20000" repeat="indefinite" easing="linear"></a-animation>
+    </a-gltf-model>
+
+    <!--<a-entity position="0 -0.2 -5" radius="1.25" shadow="" material="color: #8994D3; metalness: 0.5; roughness: 0.7; emissive: #492B63;" geometry="primitive: dodecahedron; radius: 2">
+      <a-animation attribute="rotation" to="0 360 0" direction="normal" dur="20000" repeat="indefinite" easing="linear"></a-animation>
+    </a-entity>-->
+
+    <a-sky color="#a0a5e1"></a-sky>
+
+    <!--<a-entity light="type: hemisphere; color: #cdcdfc; groundColor: #3C3; intensity: 2"></a-entity>-->
+    <a-entity light="type: ambient; intesity: 0.55;"></a-entity>
+    <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2; color: #ffbffc;" position="-2.7 2.5 -2.5;"></a-entity>
+    <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2; color: #00B3FF;" position="5 -5 -2.97;"></a-entity>
+  </a-scene>
+<style>
+  body{width:100vw;
+    height:100vh;
+    margin: 0;}
+  .logo{
+    width: 300px;
+    display:block;
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  a-scene{z-index:0;
+    position: absolute;}
+  h2{
+    font-family: 'Libre Baskerville', serif;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+</style>
+<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
